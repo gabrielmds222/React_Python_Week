@@ -22,12 +22,19 @@ const Lista = (props: ListaProps) => {
       {props.professores.length > 0 ? (
         <ListaStyled>
           {props.professores.map((professor) => (
-            <ItemLista>
+            <ItemLista key={professor.id}>
               <Foto src={professor.foto} />
 
               <Informacoes>
                 <Nome>{professor.nome}</Nome>
-                <Valor>{professor.valor_hora}</Valor>
+                <Valor>
+                  {professor.valor_hora.toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                    style: "currency",
+                    currency: "BRL",
+                  })}{" "}
+                  por hora
+                </Valor>
                 <Descricao>{professor.descricao}</Descricao>
                 <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
               </Informacoes>
