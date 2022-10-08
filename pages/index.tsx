@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
+import Lista from "../src/components/Lista";
 
 const Home: NextPage = () => {
   return (
     <>
-      <div>Conteúdo</div>
+      <Lista />
     </>
   );
 };
