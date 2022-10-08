@@ -18,7 +18,7 @@ const Lista = () => {
 
         <Informacoes>
           <Nome>Gabriel Medeiros</Nome>
-          <Valor>R$100,00</Valor>
+          <Valor>R$100,00 por hora</Valor>
           <Descricao>Aulas de programação</Descricao>
           <Button>Marcar aula</Button>
         </Informacoes>
