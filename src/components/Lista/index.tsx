@@ -9,61 +9,27 @@ import {
 } from "./styles";
 
 import { Button } from "@mui/material";
+import { Professor } from "../../@types/professor";
 
-const Lista = () => {
+interface ListaProps {
+  professores: Professor[];
+}
+
+const Lista = (props: ListaProps) => {
   return (
     <ListaStyled>
-      <ItemLista>
-        <Foto src="https://github.com/gabrielmds222.png" />
+      {props.professores.map((professor) => (
+        <ItemLista>
+          <Foto src={professor.foto} />
 
-        <Informacoes>
-          <Nome>Gabriel Medeiros</Nome>
-          <Valor>R$100,00 por hora</Valor>
-          <Descricao>Aulas de programação</Descricao>
-          <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
-        </Informacoes>
-      </ItemLista>
-
-      <ItemLista>
-        <Foto src="https://github.com/gabrielmds222.png" />
-
-        <Informacoes>
-          <Nome>Gabriel Medeiros</Nome>
-          <Valor>R$100,00 por hora</Valor>
-          <Descricao>Aulas de programação</Descricao>
-          <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
-        </Informacoes>
-      </ItemLista>
-      <ItemLista>
-        <Foto src="https://github.com/gabrielmds222.png" />
-
-        <Informacoes>
-          <Nome>Gabriel Medeiros</Nome>
-          <Valor>R$100,00 por hora</Valor>
-          <Descricao>Aulas de programação</Descricao>
-          <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
-        </Informacoes>
-      </ItemLista>
-      <ItemLista>
-        <Foto src="https://github.com/gabrielmds222.png" />
-
-        <Informacoes>
-          <Nome>Gabriel Medeiros</Nome>
-          <Valor>R$100,00 por hora</Valor>
-          <Descricao>Aulas de programação</Descricao>
-          <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
-        </Informacoes>
-      </ItemLista>
-      <ItemLista>
-        <Foto src="https://github.com/gabrielmds222.png" />
-
-        <Informacoes>
-          <Nome>Gabriel Medeiros</Nome>
-          <Valor>R$100,00 por hora</Valor>
-          <Descricao>Aulas de programação</Descricao>
-          <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
-        </Informacoes>
-      </ItemLista>
+          <Informacoes>
+            <Nome>{professor.nome}</Nome>
+            <Valor>{professor.valor_hora}</Valor>
+            <Descricao>{professor.descricao}</Descricao>
+            <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
+          </Informacoes>
+        </ItemLista>
+      ))}
     </ListaStyled>
   );
 };
