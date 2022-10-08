@@ -39,3 +39,8 @@ export const Valor = styled("p")`
 export const Descricao = styled("p")`
   word-break: break-word;
 `;
+
+export const ListaVazia = styled("h2")`
+  text-align: center;
+  padding: ${({ theme }) => theme.spacing(20, 0)};
+`;

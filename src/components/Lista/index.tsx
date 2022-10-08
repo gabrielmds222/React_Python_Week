@@ -6,6 +6,7 @@ import {
   Nome,
   Valor,
   Descricao,
+  ListaVazia,
 } from "./styles";
 
 import { Button } from "@mui/material";
@@ -17,20 +18,26 @@ interface ListaProps {
 
 const Lista = (props: ListaProps) => {
   return (
-    <ListaStyled>
-      {props.professores.map((professor) => (
-        <ItemLista>
-          <Foto src={professor.foto} />
+    <div>
+      {props.professores.length > 0 ? (
+        <ListaStyled>
+          {props.professores.map((professor) => (
+            <ItemLista>
+              <Foto src={professor.foto} />
 
-          <Informacoes>
-            <Nome>{professor.nome}</Nome>
-            <Valor>{professor.valor_hora}</Valor>
-            <Descricao>{professor.descricao}</Descricao>
-            <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
-          </Informacoes>
-        </ItemLista>
-      ))}
-    </ListaStyled>
+              <Informacoes>
+                <Nome>{professor.nome}</Nome>
+                <Valor>{professor.valor_hora}</Valor>
+                <Descricao>{professor.descricao}</Descricao>
+                <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
+              </Informacoes>
+            </ItemLista>
+          ))}
+        </ListaStyled>
+      ) : (
+        <ListaVazia>Nenhum item encontrado</ListaVazia>
+      )}
+    </div>
   );
 };
 
