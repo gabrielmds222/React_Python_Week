@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
+import Cabecalho from "../src/components/Cabecalho";
 
 const Home: NextPage = () => {
-  return <div>Primeiro projeto</div>;
+  return <Cabecalho />;
 };
 
 export default Home;
