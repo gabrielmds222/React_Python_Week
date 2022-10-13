@@ -32,7 +32,9 @@ const Lista = (props: ListaProps) => {
                   {FormatadorService.valorMonetario(professor.valor_hora)} por
                   hora
                 </Valor>
-                <Descricao>{professor.descricao}</Descricao>
+                <Descricao>
+                  {FormatadorService.limitarTexto(professor.descricao, 200)}
+                </Descricao>
                 <Button sx={{ width: "70%" }}>Marcar aula com Gabriel</Button>
               </Informacoes>
             </ItemLista>
