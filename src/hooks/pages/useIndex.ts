@@ -16,6 +16,10 @@ export function useIndex() {
     });
   }, []);
 
+  useEffect(() => {
+    limparFormulario();
+  }, [professorSelecionado]);
+
   function MarcarAula() {
     if (professorSelecionado !== null) {
       if (ValidarDadosAula()) {
@@ -38,6 +42,11 @@ export function useIndex() {
 
   function ValidarDadosAula() {
     return nome.length > 0 && email.length > 0;
+  }
+
+  function limparFormulario() {
+    setNome("");
+    setEmail("");
   }
 
   return {
