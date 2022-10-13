@@ -7,6 +7,7 @@ import {
   Grid,
   TextField,
   Button,
+  Snackbar,
 } from "@mui/material";
 import { Professor } from "../src/@types/professor";
 import { useIndex } from "../src/hooks/pages/useIndex";
@@ -21,6 +22,8 @@ const Home: NextPage = () => {
     professorSelecionado,
     setProfessorSelecionado,
     MarcarAula,
+    mensagem,
+    setMensagem,
   } = useIndex();
 
   return (
@@ -66,6 +69,13 @@ const Home: NextPage = () => {
           <Button onClick={() => MarcarAula()}>Marcar</Button>
         </DialogActions>
       </Dialog>
+
+      <Snackbar
+        message={mensagem}
+        open={mensagem.length > 0}
+        autoHideDuration={2500}
+        onClose={() => setMensagem("")}
+      />
     </div>
   );
 };

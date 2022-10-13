@@ -6,6 +6,7 @@ export function useIndex() {
   const [listaProfessores, setListaProfessores] = useState<Professor[]>([]);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
   const [professorSelecionado, setProfessorSelecionado] =
     useState<Professor | null>(null);
 
@@ -24,13 +25,13 @@ export function useIndex() {
         })
           .then(() => {
             setProfessorSelecionado(null);
-            alert("Cadastrado com sucesso");
+            setMensagem("Cadastrado com sucesso");
           })
           .catch((error) => {
-            alert(error.response?.data.message);
+            setMensagem(error.response?.data.message);
           });
       } else {
-        alert("Preencha os dados corretamente");
+        setMensagem("Preencha os dados corretamente");
       }
     }
   }
@@ -48,5 +49,7 @@ export function useIndex() {
     professorSelecionado,
     setProfessorSelecionado,
     MarcarAula,
+    mensagem,
+    setMensagem,
   };
 }
