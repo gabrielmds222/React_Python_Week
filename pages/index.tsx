@@ -20,6 +20,7 @@ const Home: NextPage = () => {
     setEmail,
     professorSelecionado,
     setProfessorSelecionado,
+    MarcarAula,
   } = useIndex();
 
   return (
@@ -31,7 +32,12 @@ const Home: NextPage = () => {
         />
       </Box>
 
-      <Dialog open={true} fullWidth PaperProps={{ sx: { p: 5 } }}>
+      <Dialog
+        onClose={() => setProfessorSelecionado(null)}
+        open={professorSelecionado !== null}
+        fullWidth
+        PaperProps={{ sx: { p: 5 } }}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
@@ -54,8 +60,10 @@ const Home: NextPage = () => {
         </Grid>
 
         <DialogActions sx={{ mt: 5 }}>
-          <Button>Cancelar</Button>
-          <Button>Marcar</Button>
+          <Button onClick={() => setProfessorSelecionado(null)}>
+            Cancelar
+          </Button>
+          <Button onClick={() => MarcarAula()}>Marcar</Button>
         </DialogActions>
       </Dialog>
     </div>
